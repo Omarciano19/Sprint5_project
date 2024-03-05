@@ -1,6 +1,9 @@
+'''Modulo de la aplicación web del analisis estadistico simple
+ de multiples anuncions de coches, muestreo y graficación.'''
 import plotly.express as px
-import streamlit as st
 import pandas as pd
+import streamlit as st
+
 
 car_data = pd.read_csv('vehicles_us.csv')  # leer los datos
 
