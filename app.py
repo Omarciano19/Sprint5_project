@@ -22,6 +22,16 @@ boxplot_check = st.checkbox(
 color_check = st.checkbox(
     'Averigua que colores son mas raros con este grafico de barras.')  # crear un checkbox
 
+if show_df:
+    st.write('Una muestra aleatoria de nuestro dataframe es:')
+    car_sample = car_data.sample(num_samples)
+    # Aplicar estilos al dataframe
+    car_data_styled = car_sample.style.set_properties(**{'background-color': 'black',
+                                                         'color': 'lawngreen',
+                                                         'border-color': 'white'})
+    st.write(car_data_styled)
+
+
 if hist_check:  # al hacer clic en el botón
     # escribir un mensaje
     st.write(
@@ -66,11 +76,3 @@ if color_check:  # al verificar la checkbox
 
     # mostrar un gráfico Plotly interactivo
     st.plotly_chart(fig, use_container_width=True)
-if show_df:
-    st.write('Una muestra aleatoria de nuestro dataframe es:')
-    car_sample = car_data.sample(num_samples)
-    # Aplicar estilos al dataframe
-    car_data_styled = car_sample.style.set_properties(**{'background-color': 'black',
-                                                         'color': 'lawngreen',
-                                                         'border-color': 'white'})
-    st.write(car_data_styled)
