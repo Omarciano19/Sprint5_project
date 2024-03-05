@@ -1,4 +1,4 @@
 pandas
-plotly::plotly_express
-conda-forge::streamlit
+plotly_express
+streamlit
 nbformat
