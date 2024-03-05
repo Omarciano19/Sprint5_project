@@ -7,6 +7,8 @@ car_data = pd.read_csv('vehicles_us.csv')  # leer los datos
 car_data = pd.read_csv('vehicles_us.csv')  # leer los datos
 st.header('Despliegue web de un análisis estadístico simple de anuncios de coches.')
 
+num_samples = st.slider('Selecciona el número de muestras', 5, 200)
+
 show_df = st.button('Mostrar muestra del DataFrame')
 
 hist_check = st.checkbox('Construir histograma')  # crear un botón
@@ -64,10 +66,8 @@ if color_check:  # al verificar la checkbox
 
     # mostrar un gráfico Plotly interactivo
     st.plotly_chart(fig, use_container_width=True)
-num_samples = 10
 if show_df:
     st.write('Una muestra aleatoria de nuestro dataframe es:')
-    num_samples = st.slider('Selecciona el número de muestras', 5, 200)
     car_sample = car_data.sample(num_samples)
     # Aplicar estilos al dataframe
     car_data_styled = car_sample.style.set_properties(**{'background-color': 'black',
